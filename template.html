@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>{{HEADLINE}} — Hermes · IA em Movimento</title>
+<meta name="description" content="{{HEADLINE}}">
+<meta property="og:title" content="Hermes · IA em Movimento — {{DATA_LONGA}}">
+<meta property="og:description" content="{{HEADLINE}}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ====== Hermes Newsletter Design System ====== */
+  :root {
+    --bg: #0f1117;
+    --bg-card: rgba(23, 25, 32, 0.92);
+    --bg-card-hover: rgba(28, 30, 38, 0.96);
+    --border: rgba(255,255,255,0.06);
+    --border-strong: rgba(255,255,255,0.10);
+    --text: #ece8e7;
+    --text-muted: #b0adb5;
+    --text-soft: #84808c;
+    --green: #10b981;
+    --violet: #8b5cf6;
+    --cyan: #06b6d4;
+    --coral: #f87171;
+    --amber: #fbbf24;
+    --blue: #3b82f6;
+    --orange: #f97316;
+    --gray: #6b7280;
+    --font: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    --radius: 1rem;
+    --radius-sm: 0.75rem;
+    --max-w: 1100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15, 17, 23, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-mark {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--green), var(--cyan));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800; color: #0f1117;
+    letter-spacing: -0.5px;
+  }
+  .brand-text strong { color: var(--text); font-weight: 600; display: block; line-height: 1.2; }
+  .brand-text small { color: var(--text-soft); font-size: 0.8rem; }
+  .topbar-date {
+    color: var(--text-muted); font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Hero */
+  .hero {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 48px 24px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .hero-gradient {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse at center, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--green); margin-bottom: 16px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 32px; height: 1px; background: var(--border-strong);
+  }
+  .hero-headline {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700; line-height: 1.25;
+    background: linear-gradient(135deg, var(--text) 30%, var(--text-muted));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .hero-date {
+    color: var(--text-soft); font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Section titles */
+  .section-title {
+    max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+    font-size: 1.2rem; font-weight: 600; color: var(--text-muted);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* Cards Grid */
+  .cards-grid {
+    max-width: var(--max-w); margin: 0 auto; padding: 0 24px 48px;
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    display: flex; flex-direction: column; gap: 12px;
+    position: relative; overflow: hidden;
+  }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .card:hover::before { opacity: 1; }
+
+  /* Tag badges */
+  .tags-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 4px 10px; border-radius: 6px;
+    line-height: 1.4;
+  }
+  .tag-modelo     { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .tag-ferramenta { background: rgba(16,185,129,0.15); color: var(--green); }
+  .tag-pesquisa   { background: rgba(139,92,246,0.15); color: var(--violet); }
+  .tag-infra      { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .tag-agente     { background: rgba(6,182,212,0.15); color: var(--cyan); }
+  .tag-negocio    { background: rgba(251,191,36,0.15); color: var(--amber); }
+  .tag-opiniao    { background: rgba(107,114,128,0.15); color: var(--gray); }
+  .card::before.tag-modelo-border     { background: var(--blue); }
+  .card::before.tag-ferramenta-border { background: var(--green); }
+  .card::before.tag-pesquisa-border   { background: var(--violet); }
+  .card::before.tag-infra-border      { background: var(--orange); }
+  .card::before.tag-agente-border     { background: var(--cyan); }
+  .card::before.tag-negocio-border    { background: var(--amber); }
+  .card::before.tag-opiniao-border    { background: var(--gray); }
+
+  .card-title {
+    font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.35;
+  }
+  .card-summary {
+    font-size: 0.875rem; color: var(--text-muted); line-height: 1.55;
+    flex: 1;
+  }
+  .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 8px; border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+  }
+  .card-handle { color: var(--text-soft); }
+  .card-handle strong { color: var(--text-muted); font-weight: 500; }
+  .card-link {
+    color: var(--cyan); text-decoration: none; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .card-link:hover { color: var(--green); }
+
+  /* Em Movimento */
+  .movimento {
+    max-width: var(--max-w); margin: 0 auto; padding: 0 24px 48px;
+  }
+  .movimento-list {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .movimento-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 50px; padding: 8px 18px 8px 12px;
+    font-size: 0.85rem; transition: background 0.2s;
+  }
+  .movimento-chip:hover { background: var(--bg-card-hover); }
+  .movimento-rank {
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; background: var(--border);
+    color: var(--text-muted);
+  }
+  .movimento-chip:nth-child(1) .movimento-rank { background: rgba(16,185,129,0.2); color: var(--green); }
+  .movimento-chip:nth-child(2) .movimento-rank { background: rgba(139,92,246,0.2); color: var(--violet); }
+  .movimento-chip:nth-child(3) .movimento-rank { background: rgba(6,182,212,0.2); color: var(--cyan); }
+  .movimento-handle { color: var(--text); font-weight: 500; }
+  .movimento-count { color: var(--text-soft); font-size: 0.75rem; }
+
+  /* Footer */
+  .page-foot {
+    border-top: 1px solid var(--border); margin-top: 32px;
+  }
+  .page-foot-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    padding: 20px 24px; display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.8rem; color: var(--text-soft);
+  }
+  .page-foot-inner a { color: var(--text-muted); text-decoration: none; }
+  .page-foot-inner a:hover { color: var(--green); }
+  .dotsep { color: var(--border-strong); }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .topbar-inner { padding: 12px 16px; }
+    .hero { padding: 32px 16px 24px; }
+    .movimento-list { gap: 8px; }
+    .movimento-chip { padding: 6px 14px 6px 10px; font-size: 0.8rem; }
+  }
+
+  /* Empty state */
+  .empty-state {
+    max-width: var(--max-w); margin: 0 auto; padding: 60px 24px;
+    text-align: center; color: var(--text-soft);
+  }
+  .empty-state-icon { font-size: 3rem; margin-bottom: 16px; }
+  .empty-state h2 { color: var(--text-muted); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">H</span>
+      <span class="brand-text">
+        <strong>Hermes</strong>
+        <small>IA em Movimento</small>
+      </span>
+    </a>
+    <span class="topbar-date">{{DATA_LONGA}}</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="hero-eyebrow">Newsletter Diária</div>
+    <h1 class="hero-headline">{{HEADLINE}}</h1>
+    <p class="hero-date">{{DATA_LONGA}}</p>
+  </section>
+
+  <h2 class="section-title">Destaques</h2>
+
+  <div class="cards-grid">
+    {{CARDS}}
+  </div>
+
+  <h2 class="section-title">Em Movimento</h2>
+  <div class="movimento">
+    <div class="movimento-list">
+      {{MOVIMENTO}}
+    </div>
+  </div>
+</main>
+
+<footer class="page-foot">
+  <div class="page-foot-inner">
+    <span>Gerado em {{TIMESTAMP}} BRT</span>
+    <span class="dotsep">·</span>
+    <span>por Hermes Agent</span>
+    <span class="dotsep">·</span>
+    <a href="/historico.json">Histórico JSON</a>
+    <span class="dotsep">·</span>
+    <span>Sem rastreamento · Sem cookies</span>
+  </div>
+</footer>
+
+</body>
+</html>

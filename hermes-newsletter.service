@@ -1,0 +1,14 @@
+[Unit]
+Description=Hermes Newsletter Static Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.hermes/cron/output
+ExecStart=/root/.hermes/hermes-agent/venv/bin/python3 -m http.server 8082 --bind 127.0.0.1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
