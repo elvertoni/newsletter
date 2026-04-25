@@ -183,9 +183,10 @@ class XClient:
         text = legacy.get("full_text", "")
         if text.startswith("RT @"):
             return None  # skip retweets
+        tid = legacy.get("id_str", "")
         return {
-            "id": legacy.get("id_str", ""),
-            "url": f"https://x.com/i/status/{legacy.get('id_str', '')}",
+            "id": tid,
+            "url": f"https://x.com/i/web/status/{tid}",
             "text": text,
             "created_at": legacy.get("created_at", ""),
             "retweet_count": legacy.get("retweet_count", 0),
