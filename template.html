@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <title>{{HEADLINE}} — Hermes · IA em Movimento</title>
 <meta name="description" content="{{HEADLINE}}">
-<meta property="og:title" content="Hermes · IA em Movimento — {{DATA_LONGA}}">
+<meta property="og:title" content="Toni Coimbra — {{DATA_LONGA}}">
 <meta property="og:description" content="{{HEADLINE}}">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,13 +61,11 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .brand-mark {
-    width: 40px; height: 40px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--green), var(--cyan));
+  .brand-logo {
+    width: 40px; height: 40px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 20px; font-weight: 800; color: #0f1117;
-    letter-spacing: -0.5px;
   }
+  .brand-logo svg { width: 100%; height: 100%; }
   .brand-text strong { color: var(--text); font-weight: 600; display: block; line-height: 1.2; }
   .brand-text small { color: var(--text-soft); font-size: 0.8rem; }
   .topbar-date {
@@ -251,9 +249,15 @@
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="/">
-      <span class="brand-mark">H</span>
+      <span class="brand-logo">
+        <svg viewBox="0 0 100 100" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M 75 25 A 35 35 0 1 0 75 75" stroke="#22D3EE"/>
+          <path d="M 83 35 A 35 35 0 0 1 83 65" stroke="#0A2F6B"/>
+          <path d="M 85 50 L 35 50" stroke="#0A2F6B"/>
+        </svg>
+      </span>
       <span class="brand-text">
-        <strong>Hermes</strong>
+        <strong>Toni Coimbra</strong>
         <small>IA em Movimento</small>
       </span>
     </a>
@@ -287,7 +291,7 @@
   <div class="page-foot-inner">
     <span>Gerado em {{TIMESTAMP}} BRT</span>
     <span class="dotsep">·</span>
-    <span>por Hermes Agent</span>
+    <span>por Toni Coimbra</span>
     <span class="dotsep">·</span>
     <a href="/historico.json">Histórico JSON</a>
     <span class="dotsep">·</span>
